@@ -161,3 +161,93 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// ==========================================
+// Project Filters
+// ==========================================
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+const projectCards = document.querySelectorAll(".project-card");
+
+let activeFilters = [];
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const filter = button.dataset.filter;
+
+        // Show all projects
+        if (filter === "all") {
+
+            activeFilters = [];
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            projectCards.forEach(card => {
+
+                card.style.display = "grid";
+
+            });
+
+            return;
+
+        }
+
+        // Remove "All" selection
+        document
+            .querySelector('[data-filter="all"]')
+            .classList.remove("active");
+
+        // Toggle current button
+        button.classList.toggle("active");
+
+        if (activeFilters.includes(filter)) {
+
+            activeFilters = activeFilters.filter(f => f !== filter);
+
+        } else {
+
+            activeFilters.push(filter);
+
+        }
+
+        // If no filters selected, show all
+        if (activeFilters.length === 0) {
+
+            document
+                .querySelector('[data-filter="all"]')
+                .classList.add("active");
+
+            projectCards.forEach(card => {
+
+                card.style.display = "grid";
+
+            });
+
+            return;
+
+        }
+
+        // Filter projects
+        projectCards.forEach(card => {
+
+            const tools = card.dataset.tools
+                .toLowerCase()
+                .split(",");
+
+            const matches = activeFilters.every(filter =>
+                tools.includes(filter)
+            );
+
+            card.style.display = matches ? "grid" : "none";
+
+        });
+
+    });
+
+});
