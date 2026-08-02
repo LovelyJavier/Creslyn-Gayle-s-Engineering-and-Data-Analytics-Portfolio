@@ -897,35 +897,56 @@ header.scrolled nav{
 
 }
 
-.contact-card{
+.contact-card i{
 
-    background:var(--surface);
+    width:70px;
 
-    border-radius:20px;
+    height:70px;
 
-    padding:40px;
+    display:flex;
 
-    text-align:center;
+    align-items:center;
 
-    text-decoration:none;
+    justify-content:center;
 
-    color:inherit;
+    border-radius:50%;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    font-size:1.8rem;
 
-    transition:.35s;
+    background:rgba(205,180,255,.20);
+
+    color:var(--primary);
+
+    transition:var(--transition);
 
 }
 
-.contact-card:hover{
+.contact-card:hover i{
 
-    transform:translateY(-10px);
+    color:var(--highlight);
 
-    box-shadow:0 25px 60px rgba(236,72,153,.18);
+    transform:scale(1.15);
+
+}
+.contact-card p{
+
+    text-align:center;
+
+    max-width:240px;
+
+    margin:auto;
 
 }
 
 .contact-card h3{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
 
     color:var(--primary);
 
