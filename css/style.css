@@ -431,3 +431,66 @@ nav a:hover::after {
     right:40px;
 
 }
+/* ==========================================
+   ABOUT
+========================================== */
+
+.section-title{
+
+    text-align:center;
+
+    font-size:2.5rem;
+
+    margin-bottom:25px;
+
+}
+
+.section-description{
+
+    max-width:850px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+    font-size:1.1rem;
+
+}
+
+.strength-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.strength-card{
+
+    background:var(--surface);
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow-small);
+
+    transition:var(--transition);
+
+}
+
+.strength-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.strength-card h3{
+
+    margin-bottom:15px;
+
+}
