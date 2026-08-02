@@ -147,107 +147,111 @@ section{
    NAVIGATION
 ========================================== */
 
-header {
+/* ==========================================
+   NAVIGATION
+========================================== */
 
-    position: fixed;
-    top: 0;
-    left: 0;
+header{
 
-    width: 100%;
+    position:fixed;
 
-    z-index: 1000;
+    top:20px;
 
-    transition: var(--transition);
+    left:50%;
 
-}
+    transform:translateX(-50%);
 
-header.scrolled {
+    z-index:1000;
 
-    background: rgba(255,255,255,.92);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow: var(--shadow-small);
+    transition:var(--transition);
 
 }
 
-nav {
+nav{
 
-    width: min(90%, var(--container));
+    display:flex;
 
-    margin: auto;
+    justify-content:center;
 
-    display: flex;
+    align-items:center;
 
-    justify-content: space-between;
+    padding:14px 30px;
 
-    align-items: center;
+    border-radius:999px;
 
-    padding: 22px 0;
+    background:rgba(255,255,255,.55);
 
-}
+    backdrop-filter:blur(18px);
 
-.logo {
+    -webkit-backdrop-filter:blur(18px);
 
-    font-family: 'Montserrat', sans-serif;
+    border:1px solid rgba(255,255,255,.35);
 
-    font-size: 1.35rem;
-
-    font-weight: 700;
-
-    color: var(--primary);
+    box-shadow:0 12px 35px rgba(31,58,95,.12);
 
 }
 
-nav ul {
+nav ul{
 
-    display: flex;
+    display:flex;
 
-    gap: 35px;
+    align-items:center;
 
-}
-
-nav a {
-
-    font-family: 'Montserrat', sans-serif;
-
-    font-weight: 600;
-
-    transition: var(--transition);
-
-    position: relative;
+    gap:35px;
 
 }
 
-nav a:hover {
+nav a{
 
-    color: var(--highlight);
+    font-family:'Montserrat',sans-serif;
 
-}
+    font-weight:600;
 
-nav a::after {
+    color:var(--primary);
 
-    content: "";
+    position:relative;
 
-    position: absolute;
-
-    left: 0;
-
-    bottom: -6px;
-
-    width: 0;
-
-    height: 2px;
-
-    background: var(--secondary);
-
-    transition: var(--transition);
+    transition:var(--transition);
 
 }
 
-nav a:hover::after {
+nav a:hover{
 
-    width: 100%;
+    color:var(--highlight);
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--secondary);
+
+    transition:var(--transition);
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+header.scrolled nav{
+
+    background:rgba(255,255,255,.88);
+
+    box-shadow:0 15px 40px rgba(31,58,95,.18);
 
 }
 /* ==========================================
