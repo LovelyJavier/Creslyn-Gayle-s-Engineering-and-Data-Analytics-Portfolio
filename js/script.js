@@ -53,36 +53,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // Scroll Reveal Animation
+    // Skills Animation
     // ==========================================
 
-    const revealElements = document.querySelectorAll(
+    document.querySelectorAll(".skill-card").forEach((card, index) => {
 
-        ".skill-card, .about-card, .project-card"
-
-    );
-
-    const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
+        card.animate(
+            [
+                {
+                    opacity: 0,
+                    transform: "translateY(30px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
+            ],
+            {
+                duration: 700,
+                delay: index * 150,
+                easing: "ease-out",
+                fill: "forwards"
             }
-
-        });
-
-    }, {
-
-        threshold: 0.15
+        );
 
     });
 
-    revealElements.forEach(element => {
+    // ==========================================
+    // About Animation
+    // ==========================================
 
-        observer.observe(element);
+    document.querySelectorAll(".about-card").forEach((card, index) => {
+
+        card.animate(
+            [
+                {
+                    opacity: 0,
+                    transform: "translateY(40px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
+            ],
+            {
+                duration: 700,
+                delay: index * 200,
+                easing: "ease-out",
+                fill: "forwards"
+            }
+        );
 
     });
 
