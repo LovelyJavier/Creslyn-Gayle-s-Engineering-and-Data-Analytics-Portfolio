@@ -147,15 +147,11 @@ section{
    NAVIGATION
 ========================================== */
 
-/* ==========================================
-   NAVIGATION
-========================================== */
-
 header{
 
     position:fixed;
 
-    top:20px;
+    top:14px;
 
     left:50%;
 
@@ -175,19 +171,19 @@ nav{
 
     align-items:center;
 
-    padding:14px 30px;
+    padding:10px 24px;
 
     border-radius:999px;
 
-    background:rgba(255,255,255,.55);
+    background:rgba(255,255,255,.45);
 
     backdrop-filter:blur(18px);
 
     -webkit-backdrop-filter:blur(18px);
 
-    border:1px solid rgba(255,255,255,.35);
+    border:1px solid rgba(255,255,255,.25);
 
-    box-shadow:0 12px 35px rgba(31,58,95,.12);
+    box-shadow:0 8px 24px rgba(31,58,95,.08);
 
 }
 
@@ -197,13 +193,15 @@ nav ul{
 
     align-items:center;
 
-    gap:35px;
+    gap:26px;
 
 }
 
 nav a{
 
     font-family:'Montserrat',sans-serif;
+
+    font-size:.95rem;
 
     font-weight:600;
 
@@ -249,9 +247,9 @@ nav a:hover::after{
 
 header.scrolled nav{
 
-    background:rgba(255,255,255,.88);
+    background:rgba(255,255,255,.75);
 
-    box-shadow:0 15px 40px rgba(31,58,95,.18);
+    box-shadow:0 10px 25px rgba(31,58,95,.12);
 
 }
 /* ==========================================
