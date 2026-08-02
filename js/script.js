@@ -255,24 +255,30 @@ filterButtons.forEach(button => {
 // Dark Mode
 // ==========================================
 
-const themeToggle = document.querySelector("#theme-toggle");
+const themeButton = document.getElementById("theme-toggle");
 
-if (themeToggle) {
+// Load saved theme
+if(localStorage.getItem("theme") === "dark"){
 
-    themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-
-            themeToggle.textContent = "☀️";
-
-        } else {
-
-            themeToggle.textContent = "🌙";
-
-        }
-
-    });
+    document.body.classList.add("dark-mode");
+    themeButton.innerHTML = "☀️";
 
 }
+
+themeButton.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-mode");
+
+    if(document.body.classList.contains("dark-mode")){
+
+        themeButton.innerHTML = "☀️";
+        localStorage.setItem("theme","dark");
+
+    }else{
+
+        themeButton.innerHTML = "🌙";
+        localStorage.setItem("theme","light");
+
+    }
+
+});
