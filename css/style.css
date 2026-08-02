@@ -494,3 +494,54 @@ nav a:hover::after {
     margin-bottom:15px;
 
 }
+/* ==========================================
+   HERO ANIMATIONS
+========================================== */
+
+.hero-content {
+
+    animation: fadeUp 1s ease forwards;
+
+}
+
+.hero-image {
+
+    animation: fadeIn 1.2s ease forwards;
+
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
