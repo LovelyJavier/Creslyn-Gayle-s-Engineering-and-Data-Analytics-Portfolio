@@ -151,7 +151,7 @@ header{
 
     position:fixed;
 
-    top:14px;
+    top:12px;
 
     left:50%;
 
@@ -171,17 +171,17 @@ nav{
 
     align-items:center;
 
-    padding:10px 24px;
+    padding:8px 20px;
 
     border-radius:999px;
 
-    background:rgba(255,255,255,.45);
+    background:rgba(255,255,255,.55);
 
     backdrop-filter:blur(18px);
 
     -webkit-backdrop-filter:blur(18px);
 
-    border:1px solid rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.35);
 
     box-shadow:0 8px 24px rgba(31,58,95,.08);
 
@@ -193,21 +193,31 @@ nav ul{
 
     align-items:center;
 
-    gap:26px;
+    gap:22px;
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
 
 }
 
 nav a{
 
+    display:block;
+
     font-family:'Montserrat',sans-serif;
 
-    font-size:.95rem;
+    font-size:.92rem;
 
     font-weight:600;
 
     color:var(--primary);
 
     position:relative;
+
+    white-space:nowrap;
 
     transition:var(--transition);
 
@@ -227,7 +237,7 @@ nav a::after{
 
     left:0;
 
-    bottom:-6px;
+    bottom:-5px;
 
     width:0;
 
@@ -247,7 +257,7 @@ nav a:hover::after{
 
 header.scrolled nav{
 
-    background:rgba(255,255,255,.75);
+    background:rgba(255,255,255,.82);
 
     box-shadow:0 10px 25px rgba(31,58,95,.12);
 
