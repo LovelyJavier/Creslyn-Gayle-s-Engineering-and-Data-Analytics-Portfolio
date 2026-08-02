@@ -943,3 +943,74 @@ nav a:hover::after {
     margin-bottom:20px;
 
 }
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:70px 20px;
+
+}
+
+.footer-content{
+
+    text-align:center;
+
+}
+
+.footer-content h2{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+}
+
+.footer-content p{
+
+    opacity:.9;
+
+}
+
+.footer-socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin:35px 0;
+
+}
+
+.footer-socials a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-socials a:hover{
+
+    color:var(--accent);
+
+}
+
+.copyright{
+
+    margin-top:30px;
+
+    font-size:.9rem;
+
+    opacity:.7;
+
+}
