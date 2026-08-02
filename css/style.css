@@ -568,9 +568,11 @@ nav a:hover::after {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 
-    gap: 30px;
+    gap: 20px;
+
+    margin-top: 60px;
 
 }
 
@@ -580,13 +582,13 @@ nav a:hover::after {
 
     border-radius: var(--radius);
 
-    padding: 35px;
-
-    text-align: center;
+    padding: 22px;
 
     box-shadow: var(--shadow-small);
 
     transition: var(--transition);
+
+    text-align: left;
 
 }
 
@@ -610,13 +612,21 @@ nav a:hover::after {
 
 .skill-card h3 {
 
-    margin-bottom: 12px;
+    font-size: 1rem;
+
+    margin-bottom: 14px;
+
+    line-height: 1.4;
 
 }
 
 .skill-card p {
 
-    font-size: .95rem;
+    font-size: .85rem;
+
+    line-height: 1.7;
+
+    text-align: left;
 
 }
 /* ==========================================
