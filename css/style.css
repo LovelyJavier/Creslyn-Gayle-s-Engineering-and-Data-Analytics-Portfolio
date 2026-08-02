@@ -1126,210 +1126,140 @@ footer{
 ========================================== */
 
 /* ==========================================
-   Tablets
+   Tablets & Small Laptops
 ========================================== */
 
-@media (max-width:1024px){
+@media (max-width:1200px){
 
     /* Hero */
 
     .hero-container{
-
         flex-direction:column;
-
         text-align:center;
-
         gap:50px;
-
     }
 
     .hero-content{
-
         order:2;
-
     }
 
     .hero-image{
-
         order:1;
-
     }
 
     .hero-description{
-
         margin:0 auto 35px;
-
         max-width:650px;
-
     }
 
     .hero-buttons{
-
         justify-content:center;
-
     }
 
     /* Projects */
 
     .project-card{
-
         grid-template-columns:1fr;
-
         gap:30px;
-
     }
 
     .project-image{
-
         order:-1;
-
     }
 
     .project-details{
-
         gap:40px;
-
     }
 
 }
 
-
 /* ==========================================
-   Mobile
+   Phones
 ========================================== */
 
-@media (max-width:768px){
+@media (max-width:600px){
 
     /* Navigation */
 
     nav{
-
-        flex-direction:column;
-
-        gap:15px;
-
-        padding:15px 0;
-
+        padding:10px 18px;
     }
 
     nav ul{
-
         flex-wrap:wrap;
-
         justify-content:center;
+        gap:14px;
+    }
 
-        gap:20px;
+    nav a{
+        font-size:.9rem;
+    }
 
+    /* Sections */
+
+    section{
+        padding:70px 0;
     }
 
     /* Hero */
 
-    section{
-
-        padding:70px 0;
-
-    }
-
     .hero-content h1{
-
-        font-size:2.8rem;
-
+        font-size:2.5rem;
     }
 
     .hero-description{
-
         font-size:1rem;
-
     }
 
     .hero-buttons{
-
         flex-direction:column;
-
         align-items:center;
-
     }
 
     .hero-image img{
-
-        width:250px;
-
-        height:250px;
-
+        width:240px;
+        height:240px;
     }
 
     .one{
-
-        width:240px;
-
-        height:240px;
-
+        width:220px;
+        height:220px;
     }
 
     .two{
-
-        width:170px;
-
-        height:170px;
-
+        width:160px;
+        height:160px;
     }
 
     /* About */
 
     .about-grid{
-
         grid-template-columns:1fr;
-
     }
 
     /* Skills */
 
     .skills-grid{
-
         grid-template-columns:1fr;
-
     }
 
     /* Projects */
 
     .project-header{
-
         flex-direction:column;
-
         align-items:flex-start;
-
         gap:15px;
-
     }
 
     .project-details{
-
         flex-direction:column;
-
         gap:20px;
-
-    }
-
-    .project-tools{
-
-        gap:10px;
-
     }
 
     /* Contact */
 
     .contact-grid{
-
         grid-template-columns:1fr;
-
-    }
-
-    /* Footer */
-
-    .footer-content h2{
-
-        font-size:1.25rem;
-
     }
 
 }
