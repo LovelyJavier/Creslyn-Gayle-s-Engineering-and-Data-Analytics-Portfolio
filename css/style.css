@@ -1,1 +1,145 @@
+/* ==========================================
+   GOOGLE FONTS
+========================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+
+/* ==========================================
+   CSS VARIABLES
+========================================== */
+
+:root{
+
+    /* Colors */
+
+    --primary:#1F3A5F;
+    --secondary:#F8BBD9;
+    --accent:#CDB4FF;
+    --highlight:#FFB86B;
+
+    --background:#F8F9FC;
+    --surface:#FFFFFF;
+
+    --text:#333333;
+    --text-light:#666666;
+
+    /* Shadows */
+
+    --shadow-small:0 4px 10px rgba(0,0,0,.08);
+    --shadow-medium:0 10px 30px rgba(0,0,0,.12);
+
+    /* Radius */
+
+    --radius:18px;
+
+    /* Transition */
+
+    --transition:.35s ease;
+
+    /* Width */
+
+    --container:1200px;
+
+}
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Roboto',sans-serif;
+    background:var(--background);
+    color:var(--text);
+    line-height:1.6;
+
+}
+
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+h1,h2,h3,h4{
+
+    font-family:'Montserrat',sans-serif;
+    color:var(--primary);
+
+}
+
+p{
+
+    color:var(--text-light);
+
+}
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+
+/* ==========================================
+   GLOBAL CONTAINER
+========================================== */
+
+.container{
+
+    width:min(90%, var(--container));
+    margin:auto;
+
+}
+
+
+/* ==========================================
+   SECTION
+========================================== */
+
+section{
+
+    padding:100px 0;
+
+}
+
+
+/* ==========================================
+   PLACEHOLDER ONLY
+   (remove later)
+========================================== */
+
+section{
+
+    border-bottom:1px solid #ececec;
+
+}
