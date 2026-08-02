@@ -261,7 +261,9 @@ header.scrolled nav{
 #hero {
 
     min-height: 100vh;
-
+   
+    padding-top:90px;
+   
     display: flex;
 
     align-items: center;
