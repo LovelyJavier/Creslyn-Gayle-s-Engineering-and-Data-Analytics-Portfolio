@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const revealElements = document.querySelectorAll(
 
-        ".skill-card, .about-card, .project-card, .contact-card"
+        ".skill-card, .about-card, .project-card"
 
     );
 
