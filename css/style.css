@@ -870,9 +870,57 @@ header.scrolled nav{
 
 }
 
-.project-button {
+.project-button{
 
-    width: fit-content;
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:fit-content;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    box-shadow:var(--shadow-small);
+
+    transition:var(--transition);
+
+}
+
+.project-button:hover{
+
+    background:var(--highlight);
+
+    color:white;
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.project-button span{
+
+    transition:transform .3s ease;
+
+}
+
+.project-button:hover span{
+
+    transform:translateX(5px);
 
 }
 /* ==========================================
