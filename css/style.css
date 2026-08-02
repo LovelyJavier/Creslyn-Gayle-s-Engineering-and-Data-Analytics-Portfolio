@@ -1151,22 +1151,6 @@ footer{
 
     }
 
-    /* About */
-
-    .about-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-    /* Skills */
-
-    .skills-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
     /* Projects */
 
     .project-card{
@@ -1178,14 +1162,6 @@ footer{
     .project-image{
 
         order:-1;
-
-    }
-
-    /* Contact */
-
-    .contact-grid{
-
-        grid-template-columns:repeat(2,1fr);
 
     }
 
