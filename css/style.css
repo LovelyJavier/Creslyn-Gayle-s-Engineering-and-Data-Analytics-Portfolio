@@ -1121,3 +1121,72 @@ footer{
     box-shadow:0 10px 25px rgba(31,58,95,.25);
 
 }
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:1024px){
+
+    /* Hero */
+
+    .hero-container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:50px;
+
+    }
+
+    .hero-description{
+
+        margin:0 auto 35px;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    /* About */
+
+    .about-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    /* Skills */
+
+    .skills-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    /* Projects */
+
+    .project-card{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .project-image{
+
+        order:-1;
+
+    }
+
+    /* Contact */
+
+    .contact-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
