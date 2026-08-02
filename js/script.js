@@ -13,9 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
 
         if (window.scrollY > 50) {
+
             header.classList.add("scrolled");
+
         } else {
+
             header.classList.remove("scrolled");
+
         }
 
     });
@@ -30,8 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         heroImage.animate(
             [
-                { opacity: 0, transform: "scale(1.2)" },
-                { opacity: 1, transform: "scale(1)" }
+                {
+                    opacity: 0,
+                    transform: "scale(1.2)"
+                },
+                {
+                    opacity: 1,
+                    transform: "scale(1)"
+                }
             ],
             {
                 duration: 1200,
@@ -43,21 +53,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // About Cards Animation
+    // Skills Animation
     // ==========================================
 
-    const aboutCards = document.querySelectorAll(".strength-card");
-
-    aboutCards.forEach((card, index) => {
+    document.querySelectorAll(".skill-card").forEach((card, index) => {
 
         card.animate(
             [
-                { opacity: 0, transform: "translateY(40px)" },
-                { opacity: 1, transform: "translateY(0)" }
+                {
+                    opacity: 0,
+                    transform: "translateY(30px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
             ],
             {
                 duration: 700,
-                delay: index * 250,
+                delay: index * 150,
+                easing: "ease-out",
                 fill: "forwards"
             }
         );
@@ -65,21 +80,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // Skills Cards Animation
+    // About Animation
     // ==========================================
 
-    const skillCards = document.querySelectorAll(".skill-card");
-
-    skillCards.forEach((card, index) => {
+    document.querySelectorAll(".about-card").forEach((card, index) => {
 
         card.animate(
             [
-                { opacity: 0, transform: "translateY(30px)" },
-                { opacity: 1, transform: "translateY(0)" }
+                {
+                    opacity: 0,
+                    transform: "translateY(40px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
             ],
             {
-                duration: 600,
-                delay: index * 150,
+                duration: 700,
+                delay: index * 200,
+                easing: "ease-out",
                 fill: "forwards"
             }
         );
