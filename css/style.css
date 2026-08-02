@@ -861,4 +861,60 @@ nav a:hover::after {
     width: fit-content;
 
 }
+/* ==========================================
+   CONTACT
+========================================== */
 
+#contact{
+
+    background:#ffffff;
+
+}
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.contact-card{
+
+    background:var(--surface);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:inherit;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.contact-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 60px rgba(236,72,153,.18);
+
+}
+
+.contact-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
