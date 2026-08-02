@@ -21,3 +21,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// ==========================================
+    // Hero Animation
+    // ==========================================
+
+    const heroImage = document.querySelector(".hero-image img");
+
+    if (heroImage) {
+
+        heroImage.animate(
+
+            [
+                {
+                    opacity: 0,
+                    transform: "scale(1.2)"
+                },
+                {
+                    opacity: 1,
+                    transform: "scale(1)"
+                }
+
+            ],
+
+            {
+                duration: 1200,
+                easing: "ease-out",
+                fill: "forwards"
+            }
+
+        );
+
+    }
+
+    // ==========================================
+    // About Cards Animation
+    // ==========================================
+
+    const cards = document.querySelectorAll(".strength-card");
+
+    cards.forEach((card, index) => {
+
+        card.animate(
+
+            [
+                {
+                    opacity: 0,
+                    transform: "translateY(40px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
+
+            ],
+
+            {
+                duration: 700,
+                delay: index * 250,
+                fill: "forwards"
+            }
+
+        );
+
+    });
+
+});
