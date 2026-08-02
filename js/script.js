@@ -106,4 +106,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    // ==========================================
+    // Projects Animation
+    // ==========================================
+
+    document.querySelectorAll(".project-card").forEach((card, index) => {
+
+        card.animate(
+            [
+                {
+                    opacity: 0,
+                    transform: "translateY(40px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
+            ],
+            {
+                duration: 700,
+                delay: index * 200,
+                easing: "ease-out",
+                fill: "forwards"
+            }
+        );
+
+    });
+
+    // ==========================================
+    // Contact Animation
+    // ==========================================
+
+    document.querySelectorAll(".contact-card").forEach((card, index) => {
+
+        card.animate(
+            [
+                {
+                    opacity: 0,
+                    transform: "translateY(40px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
+            ],
+            {
+                duration: 700,
+                delay: index * 200,
+                easing: "ease-out",
+                fill: "forwards"
+            }
+        );
+
+    });
+
 });
