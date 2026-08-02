@@ -267,6 +267,41 @@ header.scrolled nav{
 
 }
 /* ==========================================
+   THEME TOGGLE
+========================================== */
+
+#theme-toggle{
+
+    margin-left:18px;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(205,180,255,.25);
+
+    color:var(--primary);
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+#theme-toggle:hover{
+
+    background:var(--secondary);
+
+    transform:rotate(20deg);
+
+}
+/* ==========================================
    HERO
 ========================================== */
 
@@ -1344,5 +1379,22 @@ footer{
         font-size:.9rem;
 
     }
+
+}
+/* ==========================================
+   DARK MODE
+========================================== */
+
+body.dark{
+
+    --background:#141821;
+
+    --surface:#1D2433;
+
+    --primary:#E8ECF7;
+
+    --text:#F5F7FA;
+
+    --text-light:#C7D0E0;
 
 }
