@@ -254,13 +254,22 @@ nav a:hover::after {
    HERO
 ========================================== */
 
-#hero{
+#hero {
 
-    min-height:100vh;
+    min-height: 100vh;
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #F8F9FC 0%,
+        #FFF5FA 50%,
+        #F6F2FF 100%
+    );
+
+    overflow: hidden;
 
 }
 
