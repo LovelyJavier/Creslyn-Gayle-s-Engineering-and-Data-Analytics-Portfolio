@@ -1288,6 +1288,8 @@ header.scrolled nav{
 
     margin-top:60px;
 
+    width:100%;
+
 }
 
 .contact-card i{
@@ -1357,6 +1359,8 @@ footer{
     color:white;
 
     padding:30px 20px;
+   
+    width:100%;
 
 }
 
