@@ -1351,18 +1351,17 @@ header.scrolled nav{
    FOOTER
 ========================================== */
 
-footer{
-
-    width:100%;
-
-    background:var(--primary);
-
-    color:white;
-
-    padding:40px 0;
-
+footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: var(--primary);
+    color: white;
+    padding: 40px 0;
 }
-
 
 .footer-content{
 
