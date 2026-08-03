@@ -275,25 +275,29 @@ header.scrolled nav{
     width:42px;
     height:42px;
 
+    margin-left:20px;
+
     border:none;
 
     border-radius:50%;
 
-    background:#ffffff;
+    background:rgba(205,180,255,.25);
+
+    color:var(--primary);
 
     cursor:pointer;
 
     font-size:1rem;
 
-    margin-left:18px;
-
-    transition:.3s;
+    transition:.35s;
 
 }
 
 #theme-toggle:hover{
 
-    transform:scale(1.08);
+    transform:scale(1.1);
+
+    background:var(--accent);
 
 }
 /* ==========================================
@@ -1382,18 +1386,38 @@ footer{
 
 body.dark-mode{
 
-    --background:#121826;
+    --background:#111827;
 
     --surface:#1f2937;
 
     --primary:#F8BBD9;
 
-    --secondary:#E9C9FF;
+    --secondary:#F9A8D4;
 
-    --accent:#FFB86B;
+    --accent:#CDB4FF;
 
-    --text:#F5F5F5;
+    --highlight:#FFB86B;
 
-    --text-light:#D4D4D4;
+    --text:#F3F4F6;
+
+    --text-light:#D1D5DB;
+
+}
+
+body.dark-mode nav{
+
+    background:rgba(31,41,55,.85);
+
+}
+
+body.dark-mode header.scrolled nav{
+
+    background:rgba(31,41,55,.95);
+
+}
+
+body.dark-mode footer{
+
+    background:#0f172a;
 
 }
