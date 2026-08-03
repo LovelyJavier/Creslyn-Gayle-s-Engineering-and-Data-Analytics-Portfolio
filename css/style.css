@@ -1348,55 +1348,48 @@ header.scrolled nav{
 
 }
 /* ==========================================
-   FOOTER
+   FOOTER (FIXED)
 ========================================== */
-
 footer {
-    width: 100%;
-    min-width: 100vw; /* Forces the background to match full screen size */
-    position: absolute; /* Breaks out of any broken parent container constraints */
-    left: 0;
-    background: var(--primary);
-    color: white;
-    padding: 40px 0;
-}
-.footer-content{
-
-    text-align:center;
-
+    display: block !important;
+    clear: both !important;
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background-color: #1F3A5F !important; /* Forces your primary dark blue hex color */
+    color: #ffffff !important;
+    padding: 40px 0 !important;
+    margin: 0 !important;
 }
 
-.footer-content h2{
-
-    color:white;
-
-    font-size:1.5rem;
-
-    margin-bottom:12px;
-
+.footer-content {
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
 }
 
-.footer-quote{
-
-    color:rgba(255,255,255,.90);
-
-    font-size:.95rem;
-
-    font-style:italic;
-
-    line-height:1.7;
-
-    margin-bottom:15px;
-
+.footer-content h2 {
+    color: #ffffff !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 12px !important;
 }
 
-.copyright{
-
-    color:rgba(255,255,255,.65);
-
-    font-size:.8rem;
-
+.footer-quote {
+    color: rgba(255, 255, 255, 0.90) !important;
+    font-size: 0.95rem !important;
+    font-style: italic !important;
+    line-height: 1.7 !important;
+    margin-bottom: 15px !important;
 }
+
+.copyright {
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-size: 0.8rem !important;
+}  
+
 /* ==========================================
    PROJECT FILTERS
 ========================================== */
