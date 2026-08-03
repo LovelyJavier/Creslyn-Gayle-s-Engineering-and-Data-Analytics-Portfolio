@@ -116,7 +116,7 @@ img{
 
 .container{
 
-    width:min(100%, var(--container));
+    width:min(90%, var(--container));
     margin:auto;
 
 }
@@ -1353,14 +1353,15 @@ header.scrolled nav{
 footer{
 
     width:100%;
-   
+
     background:var(--primary);
 
     color:white;
 
-    padding:30px 20px;
+    padding:30px 0;
 
 }
+
 
 .footer-content{
 
