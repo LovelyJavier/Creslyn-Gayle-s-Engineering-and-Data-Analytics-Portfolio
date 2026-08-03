@@ -1354,11 +1354,11 @@ footer{
 
     width:100%;
 
-    background:var(--primary);
+    background:#1F3A5F;
 
     color:white;
 
-    padding:30px 0;
+    padding:35px 0;
 
 }
 
@@ -1369,35 +1369,38 @@ footer{
 
 }
 
+
 .footer-content h2{
 
     color:white;
 
-    font-size:1.5rem;
+    font-size:1.3rem;
 
-    margin-bottom:12px;
+    margin-bottom:8px;
 
 }
+
 
 .footer-quote{
 
-    color:rgba(255,255,255,.90);
+    color:rgba(255,255,255,.85);
 
-    font-size:.95rem;
+    font-size:.9rem;
 
     font-style:italic;
 
-    line-height:1.7;
+    line-height:1.6;
 
-    margin-bottom:15px;
+    margin-bottom:10px;
 
 }
 
+
 .copyright{
 
-    color:rgba(255,255,255,.65);
+    color:rgba(255,255,255,.6);
 
-    font-size:.8rem;
+    font-size:.75rem;
 
 }
 /* ==========================================
