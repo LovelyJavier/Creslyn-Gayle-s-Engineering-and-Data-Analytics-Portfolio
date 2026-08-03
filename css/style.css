@@ -1728,16 +1728,24 @@ footer {
    GLOBAL FIX
 ========================== */
 
-html,
-body{
-
-    width:100%;
-    overflow-x:hidden;
-    margin:0;
-    padding:0;
-
+* Ensure the body takes up the full screen height */
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
+/* Turn the body into a flexbox container that pushes the footer down */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Force the footer to stay pinned to the absolute bottom of the page flow */
+footer {
+    margin-top: auto !important;
+}
+   
 /* ==========================
    CONTACT SECTION
 ========================== */
