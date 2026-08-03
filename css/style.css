@@ -1272,7 +1272,7 @@ header.scrolled nav{
    CONTACT
 ========================================== */
 
-#.contact-grid{
+.contact-grid{
 
     display:grid;
 
@@ -1746,7 +1746,7 @@ body{
    CONTACT SECTION
 ========================== */
 
-#.contact{
+#contact{
 
     width:100%;
     padding:80px 0;
