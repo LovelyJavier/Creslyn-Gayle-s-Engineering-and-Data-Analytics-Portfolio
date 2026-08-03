@@ -1272,6 +1272,13 @@ header.scrolled nav{
    CONTACT
 ========================================== */
 
+#contact{
+
+    width:100%;
+
+}
+
+
 .contact-grid{
 
     display:grid;
