@@ -1288,8 +1288,6 @@ header.scrolled nav{
 
     margin-top:60px;
 
-    width:100%;
-
 }
 
 .contact-card i{
@@ -1359,8 +1357,6 @@ footer{
     color:white;
 
     padding:30px 20px;
-   
-    width:100%;
 
 }
 
@@ -1735,102 +1731,100 @@ footer{
         font-size:.85rem;
 
     }
-   /* ==========================
-      GLOBAL FIX
-   ========================== */
-   
-   html,
-   body{
-   
-       width:100%;
-   
-       overflow-x:hidden;
-   
-   }
-   
-   
-   /* ==========================
-      CONTACT SECTION
-   ========================== */
-   
-   #contact{
-   
-       width:100%;
-   
-       background:#f9fafc;
-   
-       padding:80px 0;
-   
-   }
-   
-   .contact-grid{ 
-      grid-template-columns:1fr; 
+/* ==========================
+   GLOBAL FIX
+========================== */
 
-      width:100%;
-   }
-   
-   .contact-container{
-   
-       width:100%;
-   
-       max-width:1200px;
-   
-       margin:0 auto;
-   
-       padding:0 40px;
-   
-   }
-   
-   
-   
-   /* ==========================
-      FOOTER
-   ========================== */
-   
-   footer{
-   
-       width:100%;
-   
-       background:#213b63;
-   
-       color:white;
-   
-       padding:50px 0;
-   
-   }
-   
-   
-   .footer-container{
-   
-       width:100%;
-   
-       max-width:1200px;
-   
-       margin:0 auto;
-   
-       padding:0 40px;
-   
-   }
-   
-   
-   .footer-content{
-   
-       width:100%;
-   
-   }
-   
-   
-   /* Remove bottom white space */
-   
-   body{
-   
-       min-height:100vh;
-   
-   }
-   
-   
-   footer{
-   
-       margin-bottom:0;
-   
-   }
+html,
+body{
+
+    width:100%;
+    overflow-x:hidden;
+    margin:0;
+    padding:0;
+
+}
+
+
+/* ==========================
+   CONTACT SECTION
+========================== */
+
+#contact{
+
+    width:100%;
+    background:#f9fafc;
+    padding:80px 0;
+
+}
+
+
+.contact-container{
+
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+
+}
+
+
+/* Force single column on mobile */
+
+.contact-grid{
+
+    display:grid;
+    grid-template-columns:1fr !important;
+    width:100%;
+
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    width:100%;
+    background:#213b63;
+    color:white;
+    padding:50px 0 30px;
+    margin:0;
+
+}
+
+
+.footer-container{
+
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+
+}
+
+
+.footer-content{
+
+    width:100%;
+
+}
+
+
+/* Remove any leftover bottom gap */
+
+body{
+
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+footer{
+
+    margin-top:auto;
+
+}
