@@ -252,33 +252,38 @@ filterButtons.forEach(button => {
 
 });
 // ==========================================
-// Dark Mode
-// ==========================================
+    // Dark Mode
+    // ==========================================
 
-const themeButton = document.getElementById("theme-toggle");
+    const themeButton = document.getElementById("theme-toggle");
 
-// Load saved theme
-if(localStorage.getItem("theme") === "dark"){
+    if(localStorage.getItem("theme") === "dark"){
 
-    document.body.classList.add("dark-mode");
-    themeButton.innerHTML = "☀️";
+        document.body.classList.add("dark-mode");
 
-}
-
-themeButton.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark-mode");
-
-    if(document.body.classList.contains("dark-mode")){
-
-        themeButton.innerHTML = "☀️";
-        localStorage.setItem("theme","dark");
-
-    }else{
-
-        themeButton.innerHTML = "🌙";
-        localStorage.setItem("theme","light");
+        themeButton.textContent = "☀️";
 
     }
 
+    themeButton.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+        if(document.body.classList.contains("dark-mode")){
+
+            themeButton.textContent = "☀️";
+
+            localStorage.setItem("theme","dark");
+
+        }else{
+
+            themeButton.textContent = "🌙";
+
+            localStorage.setItem("theme","light");
+
+        }
+
+    });
+
 });
+
