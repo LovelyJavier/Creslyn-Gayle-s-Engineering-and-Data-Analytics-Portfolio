@@ -1784,7 +1784,7 @@ body{
 footer{
 
     width:100%;
-    background:#213b63;
+    background:var(--primary);
     color:white;
 
     padding:35px 0 20px;
