@@ -1352,17 +1352,14 @@ header.scrolled nav{
 ========================================== */
 
 footer {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
+    min-width: 100vw; /* Forces the background to match full screen size */
+    position: absolute; /* Breaks out of any broken parent container constraints */
+    left: 0;
     background: var(--primary);
     color: white;
     padding: 40px 0;
 }
-
 .footer-content{
 
     text-align:center;
