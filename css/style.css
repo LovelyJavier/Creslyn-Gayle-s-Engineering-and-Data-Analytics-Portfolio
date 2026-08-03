@@ -1352,6 +1352,8 @@ header.scrolled nav{
 
 footer{
 
+    width:100%;
+   
     background:var(--primary);
 
     color:white;
