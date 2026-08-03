@@ -62,14 +62,23 @@ html{
 
 }
 
-body{
-
-    font-family:'Roboto',sans-serif;
-    background:var(--background);
-    color:var(--text);
-    line-height:1.6;
-
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    
+    /* ADD THESE THREE LINES */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
 }
+
+/* ADD THIS NEW CLASS */
+main, .main-content {
+    flex: 1;
+}
+
 
 
 /* ==========================================
