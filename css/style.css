@@ -805,52 +805,62 @@ header.scrolled nav{
 }
 
 /* ==========================================
-   CAROUSEL BUTTONS
+   PROJECT FOOTER
 ========================================== */
+
+.project-footer{
+
+    margin-top:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
 
 .carousel-nav{
 
     display:flex;
 
-    justify-content:flex-end;
-
     gap:12px;
-
-    margin-top:18px;
 
 }
 
 .carousel-btn{
 
-    width:48px;
-
-    height:48px;
-
     border:none;
 
-    border-radius:50%;
-
-    background:#fff;
+    background:#FCE7F3;
 
     color:var(--primary);
 
-    font-size:1.3rem;
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:.9rem;
+
+    font-weight:600;
 
     cursor:pointer;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-
     transition:.3s;
+
+    box-shadow:0 6px 16px rgba(248,187,217,.35);
 
 }
 
 .carousel-btn:hover{
 
-    background:var(--primary);
+    background:var(--accent);
 
     color:#fff;
 
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 
 }
 
