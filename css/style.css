@@ -267,26 +267,25 @@ header.scrolled nav{
 
 }
 /* ==========================================
-   THEME TOGGLE
+   THEME BUTTON
 ========================================== */
 
 #theme-toggle{
 
-    width:40px;
-
-    height:40px;
+    width:42px;
+    height:42px;
 
     border:none;
 
     border-radius:50%;
 
-    background:rgba(205,180,255,.25);
-
-    color:var(--primary);
+    background:#ffffff;
 
     cursor:pointer;
 
     font-size:1rem;
+
+    margin-left:18px;
 
     transition:.3s;
 
@@ -294,9 +293,7 @@ header.scrolled nav{
 
 #theme-toggle:hover{
 
-    background:var(--accent);
-
-    transform:rotate(20deg);
+    transform:scale(1.08);
 
 }
 /* ==========================================
