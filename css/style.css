@@ -1747,7 +1747,7 @@ body{
     padding:0;
 
 }
-
+}
 
 /* ==========================
    CONTACT SECTION
@@ -1816,9 +1816,4 @@ footer{
     margin-top:auto;
 
       }
-}
-footer{
-    background:red !important;
-    width:100% !important;
-    margin:0 !important;
 }
