@@ -1400,11 +1400,11 @@ footer{
 
 @media (max-width:600px){
 
-    /* Navigation */
+    /* ================= Navigation ================= */
 
     nav{
 
-        padding:8px 18px;
+        padding:8px 16px;
 
     }
 
@@ -1424,7 +1424,7 @@ footer{
 
     }
 
-    /* Sections */
+    /* ================= Sections ================= */
 
     section{
 
@@ -1432,7 +1432,7 @@ footer{
 
     }
 
-    /* Hero */
+    /* ================= Hero ================= */
 
     .hero-content h1{
 
@@ -1474,7 +1474,7 @@ footer{
 
     }
 
-    /* About */
+    /* ================= About ================= */
 
     .about-grid{
 
@@ -1482,7 +1482,7 @@ footer{
 
     }
 
-    /* Skills */
+    /* ================= Skills ================= */
 
     .skills-grid{
 
@@ -1490,30 +1490,108 @@ footer{
 
     }
 
-    /* Projects */
+    /* ================= Projects ================= */
+
+    .project-card{
+
+        grid-template-columns:1fr;
+        padding:20px;
+        gap:24px;
+
+    }
+
+    .project-image img{
+
+        width:100%;
+        height:auto;
+        max-height:260px;
+        object-fit:contain;
+
+    }
 
     .project-header{
 
         flex-direction:column;
         align-items:flex-start;
-        gap:15px;
+        gap:12px;
 
     }
 
-    .project-details{
+    .project-header h3{
 
-        flex-direction:column;
-        gap:20px;
+        max-width:100%;
+        font-size:1.5rem;
+
+    }
+
+    .project-description{
+
+        font-size:.9rem;
 
     }
 
     .project-tools{
 
+        gap:8px;
+
+    }
+
+    .project-tools span{
+
+        font-size:.75rem;
+        padding:6px 12px;
+
+    }
+
+    .project-details{
+
+        display:flex;
+        flex-wrap:wrap;
+        gap:12px;
+
+    }
+
+    .project-details div{
+
+        flex:1;
+        min-width:120px;
+
+    }
+
+    .project-footer{
+
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+        align-items:stretch;
+
+    }
+
+    .project-button{
+
+        width:100%;
+        justify-content:center;
+        margin:0;
+
+    }
+
+    .carousel-nav{
+
+        width:100%;
+        display:flex;
         gap:10px;
 
     }
 
-    /* Contact */
+    .carousel-btn{
+
+        flex:1;
+        padding:12px;
+        font-size:.85rem;
+
+    }
+
+    /* ================= Contact ================= */
 
     .contact-grid{
 
@@ -1521,7 +1599,7 @@ footer{
 
     }
 
-    /* Footer */
+    /* ================= Footer ================= */
 
     .footer-content h2{
 
