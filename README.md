@@ -74,7 +74,7 @@ Current featured projects include:
 ### 📊 Product Reliability & RMA Analytics Dashboard
 Analyzed product return (RMA) data to identify failure trends, monitor key performance indicators, and support quality improvement initiatives through an interactive dashboard.
 
-**Tools:** Excel, Power Query, Power BI
+**Tools:** Excel, Power Query, Power BI, Excel Formulas
 
 ---
 
