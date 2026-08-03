@@ -1762,22 +1762,16 @@ body{
 .contact-container{
 
     width:100%;
-    max-width:1200px;
     margin:0 auto;
     padding:0 20px;
 
 }
-
-
-/* Force single column on mobile */
-
 .contact-grid{
 
-    display:grid;
-    grid-template-columns:1fr !important;
-    width:100%;
+  grid-template-columns:1fr;
 
 }
+
 
 
 /* ==========================
@@ -1798,7 +1792,6 @@ footer{
 .footer-container{
 
     width:100%;
-    max-width:1200px;
     margin:0 auto;
     padding:0 20px;
 
