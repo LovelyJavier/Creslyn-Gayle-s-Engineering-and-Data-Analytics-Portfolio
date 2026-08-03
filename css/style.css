@@ -714,6 +714,7 @@ header.scrolled nav{
 
 }
 
+
 /* Horizontal Carousel */
 
 .projects-container{
@@ -728,7 +729,7 @@ header.scrolled nav{
 
     margin-top:60px;
 
-    padding-bottom:20px;
+    padding:0 60px 30px 60px;
 
     scrollbar-width:none;
 
@@ -740,13 +741,14 @@ header.scrolled nav{
 
 }
 
+
 /* Project Card */
 
 .project-card{
 
-    flex:0 0 100%;
+    flex:0 0 calc(100% - 120px);
 
-    scroll-snap-align:start;
+    scroll-snap-align:center;
 
     display:grid;
 
@@ -754,11 +756,11 @@ header.scrolled nav{
 
     gap:30px;
 
-    background:#fff;
+    background:#ffffff;
 
     border-radius:24px;
 
-    padding:30px;
+    padding:40px;
 
     box-shadow:0 15px 35px rgba(0,0,0,.08);
 
@@ -768,11 +770,138 @@ header.scrolled nav{
 
 }
 
+
 .project-card:hover{
 
     transform:translateY(-8px);
 
     box-shadow:0 25px 60px rgba(236,72,153,.15);
+
+}
+
+
+/* Project Text */
+
+.project-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+}
+
+
+.project-content h3{
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+
+.project-content p{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+
+/* Project Image */
+
+.project-image{
+
+    width:100%;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+
+.project-image img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+
+/* Project Button */
+
+.project-button{
+
+    margin-top:auto;
+
+    margin-left:auto;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    padding:14px 26px;
+
+    border-radius:999px;
+
+    font-family:'Montserrat',sans-serif;
+
+    text-decoration:none;
+
+    transition:.3s ease;
+
+}
+
+
+.project-button:hover{
+
+    transform:translateY(-3px);
+
+    opacity:.9;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:900px){
+
+    .projects-container{
+
+        padding:0 25px 30px 25px;
+
+    }
+
+
+    .project-card{
+
+        flex:0 0 calc(100% - 50px);
+
+        grid-template-columns:1fr;
+
+        padding:25px;
+
+    }
+
+
+    .project-button{
+
+        margin-left:0;
+
+        margin-top:30px;
+
+    }
 
 }
 
