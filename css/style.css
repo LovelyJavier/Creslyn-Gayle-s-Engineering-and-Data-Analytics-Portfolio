@@ -1817,3 +1817,8 @@ footer{
 
       }
 }
+footer{
+    background:red !important;
+    width:100% !important;
+    margin:0 !important;
+}
