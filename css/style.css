@@ -708,179 +708,227 @@ header.scrolled nav{
    PROJECTS
 ========================================== */
 
-#projects {
+#projects{
 
-    background: #f9fafc;
-
-}
-
-.projects-container {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 40px;
-
-    margin-top: 60px;
+    background:#f9fafc;
 
 }
 
-.project-card {
+/* Carousel */
 
-    display: grid;
+.projects-wrapper{
 
-    grid-template-columns: 420px 1fr;
-
-    gap: 40px;
-
-    background: #ffffff;
-
-    border-radius: 20px;
-
-    padding: 35px;
-
-    box-shadow: 0 15px 35px rgba(0,0,0,.08);
-
-    transition: .35s ease;
-
-    overflow: hidden;
+    position:relative;
 
 }
 
-.project-card:hover {
+.projects-container{
 
-    transform: translateY(-10px);
+    display:flex;
 
-    box-shadow: 0 25px 60px rgba(236,72,153,.18);
+    gap:35px;
 
-}
+    overflow-x:auto;
 
-.project-image img {
+    scroll-behavior:smooth;
 
-    width: 100%;
+    scroll-snap-type:x mandatory;
 
-    border-radius: 16px;
+    padding:10px 5px 25px;
 
-    display: block;
-
-}
-
-.project-content {
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
+    margin-top:60px;
 
 }
 
-.project-header {
+/* Scrollbar */
 
-    display: flex;
+.projects-container::-webkit-scrollbar{
 
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 20px;
+    height:10px;
 
 }
 
-.project-header h3 {
+.projects-container::-webkit-scrollbar-track{
 
-    font-size: 1.8rem;
+    background:#ececec;
 
-    color: var(--primary);
-
-}
-
-.project-status {
-
-    padding: 8px 16px;
-
-    border-radius: 999px;
-
-    font-size: .85rem;
-
-    font-weight: 600;
+    border-radius:999px;
 
 }
 
-.completed {
+.projects-container::-webkit-scrollbar-thumb{
 
-    background: #dcfce7;
+    background:var(--accent);
 
-    color: #166534;
-
-}
-
-.project-description {
-
-    line-height: 1.8;
-
-    margin-bottom: 30px;
+    border-radius:999px;
 
 }
 
-.project-tools {
+/* Project Card */
 
-    display: flex;
+.project-card{
 
-    flex-wrap: wrap;
+    flex:0 0 85%;
 
-    gap: 12px;
+    scroll-snap-align:start;
 
-    margin-bottom: 30px;
+    display:grid;
 
-}
+    grid-template-columns:420px 1fr;
 
-.project-tools span {
+    gap:40px;
 
-    background: #eef2ff;
+    background:#ffffff;
 
-    color: var(--primary);
+    border-radius:20px;
 
-    padding: 10px 18px;
+    padding:35px;
 
-    border-radius: 999px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
 
-    font-size: .9rem;
+    transition:.35s ease;
 
-    font-weight: 600;
-
-    transition: .3s;
+    overflow:hidden;
 
 }
 
-.project-tools span:hover {
+.project-card:hover{
 
-    background: #dbeafe;
+    transform:translateY(-10px);
 
-}
-
-.project-details {
-
-    display: flex;
-
-    gap: 80px;
-
-    margin-bottom: 35px;
+    box-shadow:0 25px 60px rgba(236,72,153,.18);
 
 }
 
-.project-details strong {
+/* Image */
 
-    display: block;
+.project-image img{
 
-    margin-bottom: 8px;
+    width:100%;
+
+    border-radius:16px;
+
+    display:block;
 
 }
 
-.project-details p {
+/* Content */
 
-    font-size: 1.1rem;
+.project-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+.project-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.project-header h3{
+
+    font-size:1.8rem;
+
+    color:var(--primary);
+
+}
+
+.project-status{
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+.completed{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+}
+
+.project-description{
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.project-tools{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+}
+
+.project-tools span{
+
+    background:#eef2ff;
+
+    color:var(--primary);
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.project-tools span:hover{
+
+    background:#dbeafe;
+
+}
+
+.project-details{
+
+    display:flex;
+
+    gap:80px;
+
+    margin-bottom:35px;
+
+}
+
+.project-details strong{
+
+    display:block;
+
+    margin-bottom:8px;
+
+}
+
+.project-details p{
+
+    font-size:1.1rem;
 
 }
 
@@ -935,6 +983,48 @@ header.scrolled nav{
 .project-button:hover span{
 
     transform:translateX(5px);
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width:768px){
+
+    .project-card{
+
+        flex:0 0 95%;
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+    .project-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .project-details{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .project-tools{
+
+        gap:10px;
+
+    }
 
 }
 /* ==========================================
