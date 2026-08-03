@@ -10,22 +10,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const header = document.querySelector("header");
 
-    window.addEventListener("scroll", () => {
+    if (header) {
 
-        if (window.scrollY > 50) {
+        window.addEventListener("scroll", () => {
 
-            header.classList.add("scrolled");
+            header.classList.toggle("scrolled", window.scrollY > 50);
 
-        } else {
+        });
 
-            header.classList.remove("scrolled");
-
-        }
-
-    });
+    }
 
     // ==========================================
-    // Hero Animation
+    // Reusable Animation Function
+    // ==========================================
+
+    function animateCards(selector, y = 40, delay = 200) {
+
+        document.querySelectorAll(selector).forEach((card, index) => {
+
+            card.animate(
+                [
+                    {
+                        opacity: 0,
+                        transform: `translateY(${y}px)`
+                    },
+                    {
+                        opacity: 1,
+                        transform: "translateY(0)"
+                    }
+                ],
+                {
+                    duration: 700,
+                    delay: index * delay,
+                    easing: "ease-out",
+                    fill: "forwards"
+                }
+            );
+
+        });
+
+    }
+
+    // ==========================================
+    // Hero
     // ==========================================
 
     const heroImage = document.querySelector(".hero-image img");
@@ -53,201 +80,107 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // Skills Animation
+    // Section Animations
     // ==========================================
 
-    document.querySelectorAll(".skill-card").forEach((card, index) => {
+    animateCards(".skill-card", 30, 150);
+    animateCards(".about-card");
+    animateCards(".project-card");
+    animateCards(".contact-card");
 
-        card.animate(
-            [
-                {
-                    opacity: 0,
-                    transform: "translateY(30px)"
-                },
-                {
-                    opacity: 1,
-                    transform: "translateY(0)"
+    // ==========================================
+    // Project Filters
+    // ==========================================
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    if (filterButtons.length && projectCards.length) {
+
+        let activeFilters = [];
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const filter = button.dataset.filter;
+
+                if (filter === "all") {
+
+                    activeFilters = [];
+
+                    filterButtons.forEach(btn =>
+                        btn.classList.remove("active")
+                    );
+
+                    button.classList.add("active");
+
+                    projectCards.forEach(card => {
+
+                        card.style.display = "grid";
+
+                    });
+
+                    return;
+
                 }
-            ],
-            {
-                duration: 700,
-                delay: index * 150,
-                easing: "ease-out",
-                fill: "forwards"
-            }
-        );
 
-    });
+                const allButton = document.querySelector('[data-filter="all"]');
 
-    // ==========================================
-    // About Animation
-    // ==========================================
+                if (allButton) {
 
-    document.querySelectorAll(".about-card").forEach((card, index) => {
+                    allButton.classList.remove("active");
 
-        card.animate(
-            [
-                {
-                    opacity: 0,
-                    transform: "translateY(40px)"
-                },
-                {
-                    opacity: 1,
-                    transform: "translateY(0)"
                 }
-            ],
-            {
-                duration: 700,
-                delay: index * 200,
-                easing: "ease-out",
-                fill: "forwards"
-            }
-        );
 
-    });
+                button.classList.toggle("active");
 
-    // ==========================================
-    // Projects Animation
-    // ==========================================
+                if (activeFilters.includes(filter)) {
 
-    document.querySelectorAll(".project-card").forEach((card, index) => {
+                    activeFilters = activeFilters.filter(f => f !== filter);
 
-        card.animate(
-            [
-                {
-                    opacity: 0,
-                    transform: "translateY(40px)"
-                },
-                {
-                    opacity: 1,
-                    transform: "translateY(0)"
+                } else {
+
+                    activeFilters.push(filter);
+
                 }
-            ],
-            {
-                duration: 700,
-                delay: index * 200,
-                easing: "ease-out",
-                fill: "forwards"
-            }
-        );
 
-    });
+                if (activeFilters.length === 0) {
 
-    // ==========================================
-    // Contact Animation
-    // ==========================================
+                    if (allButton) {
 
-    document.querySelectorAll(".contact-card").forEach((card, index) => {
+                        allButton.classList.add("active");
 
-        card.animate(
-            [
-                {
-                    opacity: 0,
-                    transform: "translateY(40px)"
-                },
-                {
-                    opacity: 1,
-                    transform: "translateY(0)"
+                    }
+
+                    projectCards.forEach(card => {
+
+                        card.style.display = "grid";
+
+                    });
+
+                    return;
+
                 }
-            ],
-            {
-                duration: 700,
-                delay: index * 200,
-                easing: "ease-out",
-                fill: "forwards"
-            }
-        );
 
-    });
+                projectCards.forEach(card => {
 
-});
-// ==========================================
-// Project Filters
-// ==========================================
+                    const tools = card.dataset.tools
+                        .toLowerCase()
+                        .split(",");
 
-const filterButtons = document.querySelectorAll(".filter-btn");
+                    const matches = activeFilters.every(filter =>
+                        tools.includes(filter)
+                    );
 
-const projectCards = document.querySelectorAll(".project-card");
+                    card.style.display = matches ? "grid" : "none";
 
-let activeFilters = [];
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const filter = button.dataset.filter;
-
-        // Show all projects
-        if (filter === "all") {
-
-            activeFilters = [];
-
-            filterButtons.forEach(btn =>
-                btn.classList.remove("active")
-            );
-
-            button.classList.add("active");
-
-            projectCards.forEach(card => {
-
-                card.style.display = "grid";
+                });
 
             });
-
-            return;
-
-        }
-
-        // Remove "All" selection
-        document
-            .querySelector('[data-filter="all"]')
-            .classList.remove("active");
-
-        // Toggle current button
-        button.classList.toggle("active");
-
-        if (activeFilters.includes(filter)) {
-
-            activeFilters = activeFilters.filter(f => f !== filter);
-
-        } else {
-
-            activeFilters.push(filter);
-
-        }
-
-        // If no filters selected, show all
-        if (activeFilters.length === 0) {
-
-            document
-                .querySelector('[data-filter="all"]')
-                .classList.add("active");
-
-            projectCards.forEach(card => {
-
-                card.style.display = "grid";
-
-            });
-
-            return;
-
-        }
-
-        // Filter projects
-        projectCards.forEach(card => {
-
-            const tools = card.dataset.tools
-                .toLowerCase()
-                .split(",");
-
-            const matches = activeFilters.every(filter =>
-                tools.includes(filter)
-            );
-
-            card.style.display = matches ? "grid" : "none";
 
         });
 
-    });
+    }
 
 });
