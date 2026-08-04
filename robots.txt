@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://lovelyjavier.github.io/Engineering-and-Data-Analytics-Portfolio/sitemap.xml
