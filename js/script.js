@@ -14,7 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.addEventListener("scroll", () => {
 
-            header.classList.toggle("scrolled", window.scrollY > 50);
+            header.classList.toggle(
+                "scrolled",
+                window.scrollY > 50
+            );
 
         });
 
@@ -54,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // Hero
+    // Hero Animation
     // ==========================================
 
     const heroImage = document.querySelector(".hero-image img");
@@ -88,15 +91,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animateCards(".skill-card", 30, 150);
     animateCards(".about-card");
-    animateCards(".project-card");
     animateCards(".contact-card");
+
+    /*
+    Do not animate .project-card here because the animation uses
+    transform and may interfere with carousel positioning.
+    */
 
 
     // ==========================================
     // Project Carousel
     // ==========================================
 
-    const projectsTrack = document.querySelector(".projects-track");
+    const projectsTrack =
+        document.querySelector(".projects-track");
+
+    const allProjectCards =
+        Array.from(document.querySelectorAll(".project-card"));
 
     const previousProjectButton =
         document.getElementById("previous-project");
@@ -105,31 +116,46 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("next-project");
 
     let currentProjectIndex = 0;
-    let visibleProjectCards = [];
 
 
-    function updateVisibleProjectCards() {
+    function getVisibleProjectCards() {
 
-        visibleProjectCards = Array.from(
-            document.querySelectorAll(".project-card")
-        ).filter(card => card.style.display !== "none");
+        return allProjectCards.filter(card => {
+
+            return window.getComputedStyle(card).display !== "none";
+
+        });
 
     }
 
 
     function updateProjectCarousel() {
 
-        updateVisibleProjectCards();
+        if (!projectsTrack) {
+            return;
+        }
 
-        if (!projectsTrack || visibleProjectCards.length === 0) {
+        const visibleCards = getVisibleProjectCards();
+
+        if (visibleCards.length === 0) {
+
+            projectsTrack.style.transform = "translateX(0)";
+
+            if (previousProjectButton) {
+                previousProjectButton.disabled = true;
+            }
+
+            if (nextProjectButton) {
+                nextProjectButton.disabled = true;
+            }
 
             return;
 
         }
 
-        if (currentProjectIndex >= visibleProjectCards.length) {
+        if (currentProjectIndex >= visibleCards.length) {
 
-            currentProjectIndex = visibleProjectCards.length - 1;
+            currentProjectIndex = visibleCards.length - 1;
 
         }
 
@@ -139,17 +165,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        const currentCard = visibleProjectCards[currentProjectIndex];
+        const currentCard = visibleCards[currentProjectIndex];
 
-        const allProjectCards = Array.from(
-            document.querySelectorAll(".project-card")
-        );
-
-        const actualCardIndex =
-            allProjectCards.indexOf(currentCard);
+        /*
+        offsetLeft finds the card's actual position inside the track.
+        This remains reliable even when projects are filtered.
+        */
 
         projectsTrack.style.transform =
-            `translateX(-${actualCardIndex * 100}%)`;
+            `translateX(-${currentCard.offsetLeft}px)`;
 
         if (previousProjectButton) {
 
@@ -161,12 +185,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (nextProjectButton) {
 
             nextProjectButton.disabled =
-                currentProjectIndex === visibleProjectCards.length - 1;
+                currentProjectIndex === visibleCards.length - 1;
 
         }
 
     }
 
+
+    // Previous button
 
     if (previousProjectButton) {
 
@@ -185,16 +211,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // Next button
+
     if (nextProjectButton) {
 
         nextProjectButton.addEventListener("click", () => {
 
-            updateVisibleProjectCards();
+            const visibleCards = getVisibleProjectCards();
 
-            if (
-                currentProjectIndex <
-                visibleProjectCards.length - 1
-            ) {
+            if (currentProjectIndex < visibleCards.length - 1) {
 
                 currentProjectIndex++;
 
@@ -214,124 +239,146 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterButtons =
         document.querySelectorAll(".filter-btn");
 
-    const projectCards =
-        document.querySelectorAll(".project-card");
+    let activeFilters = [];
 
-    if (filterButtons.length && projectCards.length) {
+    filterButtons.forEach(button => {
 
-        let activeFilters = [];
+        button.addEventListener("click", () => {
 
-        filterButtons.forEach(button => {
+            const selectedFilter =
+                button.dataset.filter.toLowerCase();
 
-            button.addEventListener("click", () => {
+            const allButton =
+                document.querySelector('[data-filter="all"]');
 
-                const filter = button.dataset.filter;
 
-                if (filter === "all") {
+            // All projects
 
-                    activeFilters = [];
+            if (selectedFilter === "all") {
 
-                    filterButtons.forEach(btn => {
+                activeFilters = [];
 
-                        btn.classList.remove("active");
+                filterButtons.forEach(filterButton => {
 
-                    });
+                    filterButton.classList.remove("active");
 
-                    button.classList.add("active");
+                });
 
-                    projectCards.forEach(card => {
+                button.classList.add("active");
 
-                        card.style.display = "grid";
+                allProjectCards.forEach(card => {
 
-                    });
-
-                    currentProjectIndex = 0;
-                    updateProjectCarousel();
-
-                    return;
-
-                }
-
-                const allButton =
-                    document.querySelector(
-                        '[data-filter="all"]'
-                    );
-
-                if (allButton) {
-
-                    allButton.classList.remove("active");
-
-                }
-
-                button.classList.toggle("active");
-
-                if (activeFilters.includes(filter)) {
-
-                    activeFilters =
-                        activeFilters.filter(
-                            activeFilter =>
-                                activeFilter !== filter
-                        );
-
-                } else {
-
-                    activeFilters.push(filter);
-
-                }
-
-                if (activeFilters.length === 0) {
-
-                    if (allButton) {
-
-                        allButton.classList.add("active");
-
-                    }
-
-                    projectCards.forEach(card => {
-
-                        card.style.display = "grid";
-
-                    });
-
-                    currentProjectIndex = 0;
-                    updateProjectCarousel();
-
-                    return;
-
-                }
-
-                projectCards.forEach(card => {
-
-                    const tools = card.dataset.tools
-                        .toLowerCase()
-                        .split(",")
-                        .map(tool => tool.trim());
-
-                    const matches =
-                        activeFilters.every(
-                            activeFilter =>
-                                tools.includes(activeFilter)
-                        );
-
-                    card.style.display =
-                        matches ? "grid" : "none";
+                    card.style.display = "grid";
 
                 });
 
                 currentProjectIndex = 0;
-                updateProjectCarousel();
+
+                requestAnimationFrame(updateProjectCarousel);
+
+                return;
+
+            }
+
+
+            // Remove active state from All
+
+            if (allButton) {
+
+                allButton.classList.remove("active");
+
+            }
+
+
+            // Toggle selected filter
+
+            button.classList.toggle("active");
+
+            if (activeFilters.includes(selectedFilter)) {
+
+                activeFilters = activeFilters.filter(filter => {
+
+                    return filter !== selectedFilter;
+
+                });
+
+            } else {
+
+                activeFilters.push(selectedFilter);
+
+            }
+
+
+            // Return to All when no filters remain
+
+            if (activeFilters.length === 0) {
+
+                if (allButton) {
+
+                    allButton.classList.add("active");
+
+                }
+
+                allProjectCards.forEach(card => {
+
+                    card.style.display = "grid";
+
+                });
+
+                currentProjectIndex = 0;
+
+                requestAnimationFrame(updateProjectCarousel);
+
+                return;
+
+            }
+
+
+            // Show matching projects
+
+            allProjectCards.forEach(card => {
+
+                const projectTools = card.dataset.tools
+                    .toLowerCase()
+                    .split(",")
+                    .map(tool => tool.trim());
+
+                const projectMatches =
+                    activeFilters.every(filter => {
+
+                        return projectTools.includes(filter);
+
+                    });
+
+                card.style.display =
+                    projectMatches ? "grid" : "none";
 
             });
 
+            currentProjectIndex = 0;
+
+            requestAnimationFrame(updateProjectCarousel);
+
         });
 
-    }
+    });
+
+
+    // ==========================================
+    // Window Resize
+    // ==========================================
+
+    window.addEventListener("resize", () => {
+
+        updateProjectCarousel();
+
+    });
 
 
     // ==========================================
     // Initial Carousel Position
     // ==========================================
 
-    updateProjectCarousel();
+    requestAnimationFrame(updateProjectCarousel);
 
 });
