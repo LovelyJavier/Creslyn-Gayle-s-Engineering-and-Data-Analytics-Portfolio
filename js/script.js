@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
     // ==========================================
     // Reusable Animation Function
     // ==========================================
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
     // ==========================================
     // Hero
     // ==========================================
@@ -79,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
     // ==========================================
     // Section Animations
     // ==========================================
@@ -88,12 +91,131 @@ document.addEventListener("DOMContentLoaded", () => {
     animateCards(".project-card");
     animateCards(".contact-card");
 
+
+    // ==========================================
+    // Project Carousel
+    // ==========================================
+
+    const projectsTrack = document.querySelector(".projects-track");
+
+    const previousProjectButton =
+        document.getElementById("previous-project");
+
+    const nextProjectButton =
+        document.getElementById("next-project");
+
+    let currentProjectIndex = 0;
+    let visibleProjectCards = [];
+
+
+    function updateVisibleProjectCards() {
+
+        visibleProjectCards = Array.from(
+            document.querySelectorAll(".project-card")
+        ).filter(card => card.style.display !== "none");
+
+    }
+
+
+    function updateProjectCarousel() {
+
+        updateVisibleProjectCards();
+
+        if (!projectsTrack || visibleProjectCards.length === 0) {
+
+            return;
+
+        }
+
+        if (currentProjectIndex >= visibleProjectCards.length) {
+
+            currentProjectIndex = visibleProjectCards.length - 1;
+
+        }
+
+        if (currentProjectIndex < 0) {
+
+            currentProjectIndex = 0;
+
+        }
+
+        const currentCard = visibleProjectCards[currentProjectIndex];
+
+        const allProjectCards = Array.from(
+            document.querySelectorAll(".project-card")
+        );
+
+        const actualCardIndex =
+            allProjectCards.indexOf(currentCard);
+
+        projectsTrack.style.transform =
+            `translateX(-${actualCardIndex * 100}%)`;
+
+        if (previousProjectButton) {
+
+            previousProjectButton.disabled =
+                currentProjectIndex === 0;
+
+        }
+
+        if (nextProjectButton) {
+
+            nextProjectButton.disabled =
+                currentProjectIndex === visibleProjectCards.length - 1;
+
+        }
+
+    }
+
+
+    if (previousProjectButton) {
+
+        previousProjectButton.addEventListener("click", () => {
+
+            if (currentProjectIndex > 0) {
+
+                currentProjectIndex--;
+
+                updateProjectCarousel();
+
+            }
+
+        });
+
+    }
+
+
+    if (nextProjectButton) {
+
+        nextProjectButton.addEventListener("click", () => {
+
+            updateVisibleProjectCards();
+
+            if (
+                currentProjectIndex <
+                visibleProjectCards.length - 1
+            ) {
+
+                currentProjectIndex++;
+
+                updateProjectCarousel();
+
+            }
+
+        });
+
+    }
+
+
     // ==========================================
     // Project Filters
     // ==========================================
 
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const projectCards = document.querySelectorAll(".project-card");
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+    const projectCards =
+        document.querySelectorAll(".project-card");
 
     if (filterButtons.length && projectCards.length) {
 
@@ -109,9 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     activeFilters = [];
 
-                    filterButtons.forEach(btn =>
-                        btn.classList.remove("active")
-                    );
+                    filterButtons.forEach(btn => {
+
+                        btn.classList.remove("active");
+
+                    });
 
                     button.classList.add("active");
 
@@ -121,11 +245,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     });
 
+                    currentProjectIndex = 0;
+                    updateProjectCarousel();
+
                     return;
 
                 }
 
-                const allButton = document.querySelector('[data-filter="all"]');
+                const allButton =
+                    document.querySelector(
+                        '[data-filter="all"]'
+                    );
 
                 if (allButton) {
 
@@ -137,7 +267,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (activeFilters.includes(filter)) {
 
-                    activeFilters = activeFilters.filter(f => f !== filter);
+                    activeFilters =
+                        activeFilters.filter(
+                            activeFilter =>
+                                activeFilter !== filter
+                        );
 
                 } else {
 
@@ -159,6 +293,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     });
 
+                    currentProjectIndex = 0;
+                    updateProjectCarousel();
+
                     return;
 
                 }
@@ -167,20 +304,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const tools = card.dataset.tools
                         .toLowerCase()
-                        .split(",");
+                        .split(",")
+                        .map(tool => tool.trim());
 
-                    const matches = activeFilters.every(filter =>
-                        tools.includes(filter)
-                    );
+                    const matches =
+                        activeFilters.every(
+                            activeFilter =>
+                                tools.includes(activeFilter)
+                        );
 
-                    card.style.display = matches ? "grid" : "none";
+                    card.style.display =
+                        matches ? "grid" : "none";
 
                 });
+
+                currentProjectIndex = 0;
+                updateProjectCarousel();
 
             });
 
         });
 
     }
+
+
+    // ==========================================
+    // Initial Carousel Position
+    // ==========================================
+
+    updateProjectCarousel();
 
 });
