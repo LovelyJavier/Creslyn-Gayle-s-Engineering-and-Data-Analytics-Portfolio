@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const track = document.querySelector(".projects-track");
-    const cards = Array.from(
-        document.querySelectorAll(".project-card")
-    );
 
     const previousButton =
         document.getElementById("previous-project");
@@ -14,8 +11,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const filterButtons =
         document.querySelectorAll(".filter-btn");
 
-    let visibleCards = [...cards];
+    let visibleCards = [];
     let currentIndex = 0;
+
+
+    // ==========================================
+    // GET ALL PROJECT CARDS
+    // ==========================================
+
+    function getAllCards() {
+
+        return Array.from(
+            document.querySelectorAll(".project-card")
+        );
+
+    }
+
+
+    // ==========================================
+    // GET VISIBLE PROJECT CARDS
+    // ==========================================
+
+    function updateVisibleCards() {
+
+        visibleCards = getAllCards().filter(card => {
+
+            return window.getComputedStyle(card).display !== "none";
+
+        });
+
+    }
 
 
     // ==========================================
@@ -24,9 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateCarousel() {
 
+        updateVisibleCards();
+
         if (visibleCards.length === 0) {
 
-            track.style.transform = "translateX(0)";
+            track.style.transform = "translateX(0px)";
 
             previousButton.disabled = true;
             nextButton.disabled = true;
@@ -43,14 +70,15 @@ document.addEventListener("DOMContentLoaded", function () {
             currentIndex = visibleCards.length - 1;
         }
 
+        const currentCard = visibleCards[currentIndex];
+
         /*
-        Hidden projects no longer take up space.
-        Therefore, visible projects can be moved
-        using their visible index.
+        Move the carousel using the actual position
+        of the selected visible card.
         */
 
         track.style.transform =
-            `translateX(-${currentIndex * 100}%)`;
+            `translateX(-${currentCard.offsetLeft}px)`;
 
         previousButton.disabled =
             currentIndex === 0;
@@ -66,6 +94,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==========================================
 
     nextButton.addEventListener("click", function () {
+
+        updateVisibleCards();
 
         if (currentIndex < visibleCards.length - 1) {
 
@@ -106,8 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const selectedFilter =
                 button.dataset.filter.toLowerCase();
 
-            // Update active filter button
-
             filterButtons.forEach(filterButton => {
 
                 filterButton.classList.remove("active");
@@ -117,9 +145,9 @@ document.addEventListener("DOMContentLoaded", function () {
             button.classList.add("active");
 
 
-            // Show or hide projects
+            // Show or hide all current project cards
 
-            cards.forEach(card => {
+            getAllCards().forEach(card => {
 
                 const projectTools = card.dataset.tools
                     .toLowerCase()
@@ -136,22 +164,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
 
-            // Rebuild list of visible projects
-
-            visibleCards = cards.filter(card => {
-
-                return card.style.display !== "none";
-
-            });
-
-
-            // Always display the first matching project
+            // Return to the first matching project
 
             currentIndex = 0;
 
-            track.style.transform = "translateX(0)";
+            requestAnimationFrame(function () {
 
-            requestAnimationFrame(updateCarousel);
+                updateCarousel();
+
+            });
 
         });
 
@@ -162,7 +183,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // WINDOW RESIZE
     // ==========================================
 
-    window.addEventListener("resize", updateCarousel);
+    window.addEventListener("resize", function () {
+
+        updateCarousel();
+
+    });
 
 
     // ==========================================
